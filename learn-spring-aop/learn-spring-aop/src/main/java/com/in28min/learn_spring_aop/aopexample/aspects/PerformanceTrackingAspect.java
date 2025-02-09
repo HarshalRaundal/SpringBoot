@@ -13,7 +13,7 @@ public class PerformanceTrackingAspect {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Around("execution(* com.in28min.learn_spring_aop.aopexample.*.*.*(..))")
+	@Around("com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.businessAndDataPackageConfig()")
 	public Object findExecutionTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 		// Start Timer
 		long startTimeMillis = System.currentTimeMillis();
@@ -23,7 +23,7 @@ public class PerformanceTrackingAspect {
 		long stopTimeMillis = System.currentTimeMillis();
 		long executionDuration = stopTimeMillis - startTimeMillis;
 		
-		logger.info("\nAround Aspect -- {} \n-- method executed in {} ms", proceedingJoinPoint,executionDuration);
+		logger.info("Around Aspect -- {} -- method executed in {} ms", proceedingJoinPoint,executionDuration);
 		return returnValue;
 	}
 }

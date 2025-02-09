@@ -26,16 +26,16 @@ public class LoggingAspect {
 	//          ^ return value 
 	// execution(* com.in28min.learn_spring_aop.aopexample.business.*.*(..))
 	//@Pointcut("execution(* com.in28min.learn_spring_aop.aopexample.business.*.*(..))")
-	@Before("execution(* com.in28min.learn_spring_aop.aopexample.*.*.*(..))")
-	public void logMethodCallBefore(JoinPoint joinPoint) {
-		//log method
-		//Login - What? // Advise -- 
-		logger.info("Logging in Aspect -- Before Aspect -- {} is called with arguments {}", joinPoint, joinPoint.getArgs()); // WHAT
-		
-	}
+//	@Before("com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.allPackageConfigUsingBeans()")
+//	public void logMethodCallBefore(JoinPoint joinPoint) {
+//		//log method
+//		//Login - What? // Advise -- 
+//		logger.info("Logging in Aspect -- Before Aspect -- {} is called with arguments {}", joinPoint, joinPoint.getArgs()); // WHAT
+//		
+//	}
 	
 	// both successful execution and throwing error/exception
-	@After("execution(* com.in28min.learn_spring_aop.aopexample.*.*.*(..))")
+	@After("com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.businessPackageConfig()")
 	public void logMethodCallAfter(JoinPoint joinPoint) {
 		//log method
 		//Login - What? // Advise -- 
@@ -43,7 +43,7 @@ public class LoggingAspect {
 		
 	}
 	@AfterReturning(
-	pointcut = "execution(* com.in28min.learn_spring_aop.aopexample.*.*.*(..))",
+	pointcut = "com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.dataPackageConfig()",
 	returning = "resultValue")
 	public void logMethodCallAfterReturning(JoinPoint joinPoint, Object resultValue) {
 		//log method
@@ -52,7 +52,7 @@ public class LoggingAspect {
 		
 	}
 	@AfterThrowing(
-			pointcut = "execution(* com.in28min.learn_spring_aop.aopexample.*.*.*(..))",
+			pointcut = "com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.businessAndDataPackageConfig()",
 			throwing = "exception")
 	public void logMethodCallAfterThrowing(JoinPoint joinPoint, Exception exception) {
 		//log method
