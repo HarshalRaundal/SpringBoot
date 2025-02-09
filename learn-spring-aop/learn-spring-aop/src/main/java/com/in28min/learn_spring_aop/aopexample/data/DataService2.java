@@ -2,9 +2,12 @@ package com.in28min.learn_spring_aop.aopexample.data;
 
 import org.springframework.stereotype.Repository;
 
+import com.in28min.learn_spring_aop.aopexample.annotations.TrackTime;
+
 @Repository
 public class DataService2 {
 	// connection with database
+	@TrackTime
 	public int[] retrieveData() {
 //		try {
 //			Thread.sleep(30);

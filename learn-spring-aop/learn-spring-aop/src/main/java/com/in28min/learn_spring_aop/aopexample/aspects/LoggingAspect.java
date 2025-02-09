@@ -26,13 +26,13 @@ public class LoggingAspect {
 	//          ^ return value 
 	// execution(* com.in28min.learn_spring_aop.aopexample.business.*.*(..))
 	//@Pointcut("execution(* com.in28min.learn_spring_aop.aopexample.business.*.*(..))")
-//	@Before("com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.allPackageConfigUsingBeans()")
-//	public void logMethodCallBefore(JoinPoint joinPoint) {
-//		//log method
-//		//Login - What? // Advise -- 
-//		logger.info("Logging in Aspect -- Before Aspect -- {} is called with arguments {}", joinPoint, joinPoint.getArgs()); // WHAT
-//		
-//	}
+	@Before("com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.allPackageConfigUsingBeans()")
+	public void logMethodCallBefore(JoinPoint joinPoint) {
+		//log method
+		//Login - What? // Advise -- 
+		logger.info("Logging in Aspect -- Before Aspect -- {} is called with arguments {}", joinPoint, joinPoint.getArgs()); // WHAT
+		
+	}
 	
 	// both successful execution and throwing error/exception
 	@After("com.in28min.learn_spring_aop.aopexample.aspects.CommonPointConfig.businessPackageConfig()")

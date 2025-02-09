@@ -13,7 +13,9 @@ public class CommonPointConfig {
 	@Pointcut("execution(* com.in28min.learn_spring_aop.aopexample.*.*.*(..))")
 	public void businessAndDataPackageConfig() {}
 	
-	@Pointcut("bean(*Service*")
+	@Pointcut("bean(*Service*)")
 	public void allPackageConfigUsingBeans() {}
-
+	
+	@Pointcut("@annotation(com.in28min.learn_spring_aop.aopexample.annotations.TrackTime)")
+	public void trackTimeAnnotation() {}
 }
